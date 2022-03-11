@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-import Form from './components/Form';
 import shortid from 'shortid';
+import ContactForm from './components/ContactForm';
+
 
 class App extends Component {
   state = {
     contacts: [],
-    name: ''
   };
+
+  formSubmitHandler = data => {
+    console.log(data);
+  };
+  
   addContact = name => {
     const contact = {
       id: shortid.generate(),
@@ -19,19 +24,18 @@ class App extends Component {
     }));
 
   };
-  // formSubmitHandler = data => {
-  //   console.log(data);
-  // };
+ 
 
   render() {
     return (
-      <div className="App">
-        <h1>Phonebook</h1>
-        <Form onSubmit={ this.formSubmitHandler}/> 
-        
-      
-        
-    </div>
+     <div>
+  <h1>Phonebook</h1>
+        <ContactForm onSubmit={ this.formSubmitHandler}/>
+  
+  <h2>Contacts</h2>
+  {/* <Filter ... /> */}
+  {/* <ContactList ... /> */}
+</div>
   )
   }
   
